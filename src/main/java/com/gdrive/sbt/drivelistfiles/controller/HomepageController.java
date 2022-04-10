@@ -130,4 +130,53 @@ public class HomepageController {
         String fileReference = String.format("{fileID: '%s'}", uploadedFile.getId());
         response.getWriter().write(fileReference);
     }
+
+    @GetMapping(value = { "/createfolder/{folderName}" }, produces = "application/json")
+    public @ResponseBody Message createFolder(@PathVariable(name = "folderName") String folder) throws Exception {
+        Credential cred = flow.loadCredential(USER_IDENTIFIER_KEY);
+
+        Drive drive = new Drive.Builder(HTTP_TRANSPORT, JSON_FACTORY, cred)
+                .setApplicationName("googledrivespringbootexample").build();
+
+        File file = new File();
+        file.setName(folder);
+        file.setMimeType("application/vnd.google-apps.folder");
+
+        drive.files().create(file).execute();
+
+        Message message = new Message();
+        message.setMessage("Folder has been created successfully.");
+        return message;
+    }
+
+    @GetMapping(value = { "/uploadinfolder" })
+    public void uploadFileInFolder(HttpServletResponse response) throws Exception {
+        Credential cred = flow.loadCredential(USER_IDENTIFIER_KEY);
+
+        Drive drive = new Drive.Builder(HTTP_TRANSPORT, JSON_FACTORY, cred)
+                .setApplicationName("googledrivespringbootexample").build();
+
+        File file = new File();
+        file.setName("logo.jpg");
+        file.setParents(Arrays.asList("1BuqVesfpiZVCBqfJ4t34dukG4FvP0hoi"));
+
+        FileContent content = new FileContent("image/jpeg", new java.io.File("C:\\Users\\Xiaoliang Chen\\Pictures\\WorldKind Logo.jpg"));
+        File uploadedFile = drive.files().create(file, content).setFields("id").execute();
+
+        String fileReference = String.format("{fileID: '%s'}", uploadedFile.getId());
+        response.getWriter().write(fileReference);
+    }
+
+    class Message {
+        private String message;
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
+
+    }
 }
