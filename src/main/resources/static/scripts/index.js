@@ -45,22 +45,12 @@ $(document).ready(function(){
         });
     });
 
+    $("#downloadButton").click(function(){
+        $.ajax({
+            url: '/downloadfile'
+        }).done(function(data){
+            alert(data.fileID);
+        });
+    });
+
 });
-
-function deleteFile(id) {
-    $.ajax({
-        url: '/deletefile/' + id,
-        method: 'DELETE'
-    }).done(function(){
-        alert('File has been deleted. Please refresh the list.');
-    });
-}
-
-function makePublic(id) {
-    $.ajax({
-        url: '/makepublic/' + id,
-        method: 'POST'
-    }).done(function(){
-        alert('File can be viewed by anyone on internet.');
-    });
-}

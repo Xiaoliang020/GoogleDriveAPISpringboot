@@ -1,6 +1,8 @@
 package com.gdrive.sbt.drivelistfiles.controller;
 
+import java.io.ByteArrayOutputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -166,6 +168,24 @@ public class HomepageController {
         String fileReference = String.format("{fileID: '%s'}", uploadedFile.getId());
         response.getWriter().write(fileReference);
     }
+
+    @GetMapping(value = { "/downloadfile" })
+    public @ResponseBody Message downloadFile() throws Exception {
+        Credential cred = flow.loadCredential(USER_IDENTIFIER_KEY);
+
+        Drive drive = new Drive.Builder(HTTP_TRANSPORT, JSON_FACTORY, cred)
+                .setApplicationName("googledrivespringbootexample").build();
+
+        String fileId = "1J01J-hYnb4WIFUYxbbkdbmKodbSAsRr3";
+        OutputStream outputStream = new ByteArrayOutputStream();
+        drive.files().get(fileId).executeMediaAndDownloadTo(outputStream);
+        //drive.files().export(fileId, "C:\\Users\\Xiaoliang Chen\\Downloads").executeMediaAndDownloadTo(outputStream);
+
+        Message message = new Message();
+        message.setMessage("File has been downloaded successfully.");
+        return message;
+    }
+
 
     class Message {
         private String message;
