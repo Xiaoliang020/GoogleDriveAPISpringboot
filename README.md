@@ -26,6 +26,7 @@ Change the folder ID and pathname of file if you want to upload a file to a fold
 
 ## How to run the project
 src/main/java/com/gdrive/sbt/drivelistfiles/DriveListFilesApplication.java
+
 Build the project first and then run this java file. After everything is good, open http://localhost:8080/ on your browser.
 
 ## Trouble Shooting
