@@ -24,6 +24,16 @@ Change the path name shown in the image if you want to upload your own file:
 Change the folder ID and pathname of file if you want to upload a file to a folder:
 ![$YC B28D48)SQ(LX@M}CWLP](https://user-images.githubusercontent.com/70415185/163737775-ef6a3442-675c-4df5-8849-a267fd8a78a4.png)
 
+## How to run the project
+src/main/java/com/gdrive/sbt/drivelistfiles/DriveListFilesApplication.java
+Build the project first and then run this java file. After everything is good, open http://localhost:8080/ on your browser.
+
+## Trouble Shooting
+If you found your access token is expired or revoked after open the website, change String USER_IDENTIFIER_KEY's value and try to run the project again.
+
+![S6)_O16EP_IJ`{`R)}QFZDS](https://user-images.githubusercontent.com/70415185/163738114-fb5ff353-5c4a-41ed-ae4e-e407ae6fc836.png)
+
+
 ## Feature not completed
 I do write the code for download files, but it is not working right now
 
