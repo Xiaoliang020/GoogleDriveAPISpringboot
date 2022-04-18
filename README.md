@@ -6,7 +6,7 @@ This Springboot Project completed some Google Drive API features including Googl
 
 ## Installation
 
-Download all the code and put it into a folder, then import into Eclipse or IntelliJ IDEA.
+Download all the code and put it into a folder, then import the project into Eclipse or IntelliJ IDEA.
 
 
 ## Project Description
