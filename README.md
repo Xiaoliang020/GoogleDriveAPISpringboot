@@ -29,7 +29,7 @@ src/main/java/com/gdrive/sbt/drivelistfiles/DriveListFilesApplication.java
 Build the project first and then run this java file. After everything is good, open http://localhost:8080/ on your browser.
 
 ## Trouble Shooting
-If you found your access token is expired or revoked after open the website, change String USER_IDENTIFIER_KEY's value and try to run the project again.
+If you receive the error that your access token is expired or revoked after open the website, change String USER_IDENTIFIER_KEY's value and try to run the project again.
 
 ![S6)_O16EP_IJ`{`R)}QFZDS](https://user-images.githubusercontent.com/70415185/163738114-fb5ff353-5c4a-41ed-ae4e-e407ae6fc836.png)
 
