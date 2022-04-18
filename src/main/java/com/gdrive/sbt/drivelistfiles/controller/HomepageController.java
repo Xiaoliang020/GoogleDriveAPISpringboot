@@ -52,7 +52,7 @@ public class HomepageController {
 
     private static final List<String> SCOPES = Collections.singletonList(DriveScopes.DRIVE);
 
-    private static final String USER_IDENTIFIER_KEY = "MY_DUMMY_USER";
+    private static final String USER_IDENTIFIER_KEY = "MY_USER_TEST_2";
 
     @Value("${google.oauth.callback.uri}")
     private String CALLBACK_URI;
@@ -63,8 +63,6 @@ public class HomepageController {
     @Value("${google.credentials.folder.path}")
     private Resource credentialsFolder;
 
-//    @Value("${google.service.account.key}")
-//    private Resource serviceAccountKey;
 
     private GoogleAuthorizationCodeFlow flow;
 
@@ -176,10 +174,9 @@ public class HomepageController {
         Drive drive = new Drive.Builder(HTTP_TRANSPORT, JSON_FACTORY, cred)
                 .setApplicationName("googledrivespringbootexample").build();
 
-        String fileId = "1J01J-hYnb4WIFUYxbbkdbmKodbSAsRr3";
+        String fileId = "1y9kO0dIqEokN7wThEN1T62psy4aDQ8yS";
         OutputStream outputStream = new ByteArrayOutputStream();
         drive.files().get(fileId).executeMediaAndDownloadTo(outputStream);
-        //drive.files().export(fileId, "C:\\Users\\Xiaoliang Chen\\Downloads").executeMediaAndDownloadTo(outputStream);
 
         Message message = new Message();
         message.setMessage("File has been downloaded successfully.");
