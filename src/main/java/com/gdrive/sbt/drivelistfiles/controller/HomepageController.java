@@ -121,10 +121,10 @@ public class HomepageController {
                 .setApplicationName("googledrivespringbootexample").build();
 
         File file = new File();
-        file.setName("sample.jpg");
+        file.setName("TEST.pdf");
 
         // Edit this section to upload your file
-        FileContent content = new FileContent("image/jpeg", new java.io.File("C:\\Users\\Xiaoliang Chen\\Pictures\\WorldKind Logo.jpg"));
+        FileContent content = new FileContent("application/pdf", new java.io.File("C:\\Users\\Xiaoliang Chen\\Documents\\WorldKindPDF.pdf"));
         File uploadedFile = drive.files().create(file, content).setFields("id").execute();
 
         String fileReference = String.format("{fileID: '%s'}", uploadedFile.getId());
@@ -157,10 +157,10 @@ public class HomepageController {
                 .setApplicationName("googledrivespringbootexample").build();
 
         File file = new File();
-        file.setName("logo.jpg");
+        file.setName("Folder test.pdf");
         file.setParents(Arrays.asList("1BuqVesfpiZVCBqfJ4t34dukG4FvP0hoi"));
 
-        FileContent content = new FileContent("image/jpeg", new java.io.File("C:\\Users\\Xiaoliang Chen\\Pictures\\WorldKind Logo.jpg"));
+        FileContent content = new FileContent("application/pdf", new java.io.File("C:\\Users\\Xiaoliang Chen\\Documents\\WorldKindPDF.pdf"));
         File uploadedFile = drive.files().create(file, content).setFields("id").execute();
 
         String fileReference = String.format("{fileID: '%s'}", uploadedFile.getId());
