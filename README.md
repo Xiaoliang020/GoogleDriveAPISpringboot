@@ -26,6 +26,7 @@ Change the path name shown in the image if you want to upload your own file:
 
 Change the folder ID and pathname of file if you want to upload a file to a folder:
 ![$YC B28D48)SQ(LX@M}CWLP](https://user-images.githubusercontent.com/70415185/163737775-ef6a3442-675c-4df5-8849-a267fd8a78a4.png)
+You can find the folder ID in the url after you open the folder
 
 ## How to run the project
 src/main/java/com/gdrive/sbt/drivelistfiles/DriveListFilesApplication.java
